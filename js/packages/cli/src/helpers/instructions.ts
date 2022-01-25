@@ -156,7 +156,7 @@ export function createMasterEditionInstruction(
     {
       pubkey: metadataAccount,
       isSigner: false,
-      isWritable: false,
+      isWritable: true,
     },
     {
       pubkey: TOKEN_PROGRAM_ID,
