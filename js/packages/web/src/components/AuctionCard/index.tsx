@@ -495,11 +495,8 @@ export const AuctionCard = ({
     (auctionView.vault.info.state === VaultState.Deactivated &&
       isBidderPotEmpty);
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
   const actionButtonContent = useActionButtonContent(auctionView);
 
   if (shouldHide) {

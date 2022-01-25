@@ -1,28 +1,28 @@
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ENV as ChainId, TokenInfo,
-  TokenListProvider
+  TokenInfo,
+  TokenListProvider,
+  ENV as ChainId,
 } from '@solana/spl-token-registry';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import {
-  Blockhash, clusterApiUrl,
+  Keypair,
+  clusterApiUrl,
   Commitment,
-  Connection, FeeCalculator, Keypair, RpcResponseAndContext,
+  Connection,
+  RpcResponseAndContext,
   SignatureStatus,
   SimulatedTransactionResponse,
   Transaction,
   TransactionInstruction,
-  TransactionSignature
+  TransactionSignature,
+  Blockhash,
+  FeeCalculator,
 } from '@solana/web3.js';
-<<<<<<< HEAD
-import React, { useContext, useEffect, useRef, useState } from 'react';
-=======
 import { chunks, sleep, useLocalStorageState } from '../utils/utils';
 import { notify } from '../utils/notifications';
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 import { ExplorerLink } from '../components/ExplorerLink';
 import { useQuerySearch } from '../hooks';
-import { notify } from '../utils/notifications';
-import { sleep, useLocalStorageState } from '../utils/utils';
 import { WalletSigner } from './wallet';
 
 interface BlockhashAndFeeCalculator {
@@ -48,7 +48,7 @@ export const ENDPOINTS: Array<Endpoint> = [
   {
     name: 'mainnet-beta',
     label: 'mainnet-beta',
-    url: 'https://ssc-dao.genesysgo.net/',
+    url: 'https://api.metaplex.solana.com/',
     chainId: ChainId.MainnetBeta,
   },
   {
@@ -139,7 +139,7 @@ export function ConnectionProvider({ children }: { children: any }) {
   useEffect(() => {
     const id = connection.onAccountChange(
       Keypair.generate().publicKey,
-      () => { },
+      () => {},
     );
     return () => {
       connection.removeAccountChangeListener(id);
@@ -366,7 +366,7 @@ export const sendTransactions = async (
   signersSet: Keypair[][],
   sequenceType: SequenceType = SequenceType.Parallel,
   commitment: Commitment = 'singleGossip',
-  successCallback: (txid: string, ind: number) => void = (txid, ind) => { },
+  successCallback: (txid: string, ind: number) => void = (txid, ind) => {},
   failCallback: (reason: string, ind: number) => boolean = (txid, ind) => false,
   block?: BlockhashAndFeeCalculator,
 ): Promise<number> => {
@@ -720,7 +720,7 @@ export async function sendSignedTransaction({
       simulateResult = (
         await simulateTransaction(connection, signedTransaction, 'single')
       ).value;
-    } catch (e) { }
+    } catch (e) {}
     if (simulateResult && simulateResult.err) {
       if (simulateResult.logs) {
         for (let i = simulateResult.logs.length - 1; i >= 0; --i) {

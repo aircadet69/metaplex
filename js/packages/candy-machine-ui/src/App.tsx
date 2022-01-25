@@ -33,18 +33,12 @@ const getCandyMachineId = (): anchor.web3.PublicKey | undefined => {
       process.env.REACT_APP_CANDY_MACHINE_ID!,
     );
 
-<<<<<<< HEAD:js/packages/fair-launch/src/App.tsx
-const fairLaunchId = new anchor.web3.PublicKey(
-  process.env.REACT_APP_FAIR_LAUNCH_ID!,
-);
-=======
     return candyMachineId;
   } catch (e) {
     console.log('Failed to construct CandyMachineId', e);
     return undefined;
   }
 };
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384:js/packages/candy-machine-ui/src/App.tsx
 
 const candyMachineId = getCandyMachineId();
 const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
@@ -75,17 +69,6 @@ const App = () => {
       <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect>
           <WalletDialogProvider>
-<<<<<<< HEAD:js/packages/fair-launch/src/App.tsx
-            <ConfettiProvider>
-              <Home
-                candyMachineId={candyMachineId}
-                fairLaunchId={fairLaunchId}
-                connection={connection}
-                startDate={startDateSeed}
-                txTimeout={txTimeout}
-              />
-            </ConfettiProvider>
-=======
             <Home
               candyMachineId={candyMachineId}
               connection={connection}
@@ -93,7 +76,6 @@ const App = () => {
               txTimeout={txTimeoutInMilliseconds}
               rpcHost={rpcHost}
             />
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384:js/packages/candy-machine-ui/src/App.tsx
           </WalletDialogProvider>
         </WalletProvider>
       </ConnectionProvider>

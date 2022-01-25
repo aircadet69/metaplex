@@ -241,15 +241,10 @@ const CategoryStep = (props: {
       <Row className="call-to-action">
         <h2>Create a new item</h2>
         <p>
-<<<<<<< HEAD
           First time creating on Kreation?{' '}
-          <a href="#">Read our creators’ guide.</a>
-=======
-          First time creating on Metaplex?{' '}
-          <a href="https://docs.metaplex.com/create-store/sell" target="_blank" rel="noreferrer">
+          <a href="#">
             Read our creators’ guide.
           </a>
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
         </p>
       </Row>
       <Row justify={width < 768 ? 'center' : 'start'}>
@@ -335,7 +330,7 @@ const UploadStep = (props: {
 
   const [customURL, setCustomURL] = useState<string>('');
   const [customURLErr, setCustomURLErr] = useState<string>('');
-  const disableContinue = !coverFile || !!customURLErr;
+  const disableContinue = !(coverFile || (!customURLErr && !!customURL));
 
   useEffect(() => {
     props.setAttributes({
@@ -405,6 +400,10 @@ const UploadStep = (props: {
           accept=".png,.jpg,.gif,.mp4,.svg"
           style={{ padding: 20, background: 'rgba(255, 255, 255, 0.08)' }}
           multiple={false}
+          onRemove={() => {
+            setMainFile(undefined);
+            setCoverFile(undefined);
+          }}
           customRequest={info => {
             // dont upload files here, handled outside of the control
             info?.onSuccess?.({}, null as any);
@@ -526,7 +525,7 @@ const UploadStep = (props: {
           type="primary"
           size="large"
           disabled={disableContinue}
-          onClick={() => {
+          onClick={async () => {
             props.setAttributes({
               ...props.attributes,
               properties: {
@@ -546,14 +545,16 @@ const UploadStep = (props: {
                     } as MetadataFile;
                   }),
               },
-              image: coverFile?.name || '',
+              image: coverFile?.name || customURL || '',
               animation_url:
                 props.attributes.properties?.category !==
                   MetadataCategory.Image && customURL
                   ? customURL
                   : mainFile && mainFile.name,
             });
-            const files = [coverFile, mainFile].filter(f => f) as File[];
+            const url = await fetch(customURL).then(res => res.blob());
+            const files = [coverFile, mainFile, customURL ? new File([url], customURL) : '']
+              .filter(f => f) as File[];
 
             props.setFiles(files);
             props.confirm();
@@ -1281,7 +1282,7 @@ const Congrats = (props: {
       url: `${
         window.location.origin
       }/#/art/${props.nft?.metadataAccount.toString()}`,
-      hashtags: 'NFT,Crypto,Kreation',
+      hashtags: 'NFT,Crypto,Metaplex',
       // via: "Metaplex",
       related: 'Kreation,Solana',
     };

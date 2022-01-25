@@ -1,13 +1,8 @@
-import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 import {
   PackDistributionType,
   useConnection,
+  useMeta,
   useUserAccounts,
 } from '@oyster/common';
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -19,7 +14,11 @@ import { useExtendedArt, useUserArts } from '../../hooks';
 import { PackState } from './interface';
 import { INITIAL_PACK_STATE } from './data';
 import { CreatePackSteps } from './types';
-import { packItemsFilter, vouchersFilter, exceededPacksCountNotification } from './utils';
+import {
+  packItemsFilter,
+  vouchersFilter,
+  exceededPacksCountNotification,
+} from './utils';
 import { MAX_PACKS_CREATION_COUNT } from '../../constants';
 import useStep from './hooks/useStep';
 
@@ -34,36 +33,27 @@ import SuccessModal from './components/SuccessModal';
 import { useValidation } from './hooks/useValidation';
 import { Button } from 'antd';
 
+// ToDo: Refactor state to a react context
 export const PackCreateView = (): ReactElement => {
   const history = useHistory();
   const [attributes, setAttributes] = useState<PackState>(INITIAL_PACK_STATE);
   const [shouldShowSuccessModal, setShouldShowSuccessModal] =
     useState<boolean>(false);
-<<<<<<< HEAD
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-=======
   const [errorModal, setErrorModal] =
     useState<{error: string, display: boolean}>({error: '', display: false});
   const [isCreating, setIsCreating] = useState<boolean>(false);
   const { pullUserMetadata } = useMeta();
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 
   const items = useUserArts();
   const { step, goToNextStep, resetStep } = useStep();
   const wallet = useWallet();
   const connection = useConnection();
-<<<<<<< HEAD
-  const { accountByMint } = useUserAccounts();
-  const isValidStep = useValidation({ attributes, step });
-
-=======
   const { isFetching } = useMeta();
   const { accountByMint, userAccounts } = useUserAccounts();
   const isValidStep = useValidation({ attributes, step });
 
   const isLoading = isCreating || isFetching;
 
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
   const {
     selectedItems,
     selectedVouchers,
@@ -77,14 +67,13 @@ export const PackCreateView = (): ReactElement => {
     isUnlimitedSupply,
   } = attributes;
 
-  const itemsToSelect = useMemo(
-    () => items.filter(packItemsFilter(selectedItems, isUnlimitedSupply)),
-    [items, selectedItems],
+  const itemsToSelect = items.filter(
+    packItemsFilter(selectedItems, isUnlimitedSupply),
   );
-  const vouchersToSelect = useMemo(
-    () => items.filter(vouchersFilter(selectedItems)),
-    [items, selectedItems],
-  );
+  const vouchersToSelect = items.filter(vouchersFilter(selectedItems));
+
+  const [selectedVoucherId] = Object.keys(selectedVouchers);
+  const { ref, data } = useExtendedArt(selectedVoucherId);
 
   const setPackState = useCallback(
     (value: Partial<PackState>) => {
@@ -92,19 +81,6 @@ export const PackCreateView = (): ReactElement => {
     },
     [attributes, setAttributes],
   );
-
-  const selectedVoucherId = Object.keys(selectedVouchers)[0];
-  const { ref, data } = useExtendedArt(selectedVoucherId);
-
-  useEffect(() => {
-    if (!data) return;
-
-    setPackState({
-      uri: data.image,
-      name: data.name,
-      description: data.description,
-    });
-  }, [data]);
 
   const handleSelectItem = useCallback(
     (item: SafetyDepositDraft): void => {
@@ -120,7 +96,9 @@ export const PackCreateView = (): ReactElement => {
         delete updatedSelectedItems[metadata.pubkey];
       } else {
         updatedSelectedItems[metadata.pubkey] = item;
-        if(Object.keys(updatedSelectedItems).length > MAX_PACKS_CREATION_COUNT) {
+        if (
+          Object.keys(updatedSelectedItems).length > MAX_PACKS_CREATION_COUNT
+        ) {
           exceededPacksCountNotification();
           return;
         }
@@ -167,7 +145,7 @@ export const PackCreateView = (): ReactElement => {
       !!Object.values(selectedVouchers).length;
 
     if (canSubmit) {
-      setIsLoading(true);
+      setIsCreating(true);
       try {
         await sendCreatePack({
           wallet,
@@ -181,7 +159,7 @@ export const PackCreateView = (): ReactElement => {
         setErrorModal({ error: e?.message, display: true });
       }
     }
-    setIsLoading(false);
+    setIsCreating(false);
   }, [wallet, connection, accountByMint, attributes]);
 
   const handleFinish = useCallback(() => {
@@ -191,8 +169,6 @@ export const PackCreateView = (): ReactElement => {
     history.push('/artworks');
   }, []);
 
-<<<<<<< HEAD
-=======
   useEffect(() => {
     if (!data) return;
 
@@ -208,7 +184,6 @@ export const PackCreateView = (): ReactElement => {
     step === CreatePackSteps.SelectItems ||
     step === CreatePackSteps.SelectVoucher;
 
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
   return (
     <div className="pack-create-wrapper" ref={ref}>
       <Sidebar
@@ -232,6 +207,7 @@ export const PackCreateView = (): ReactElement => {
             items={itemsToSelect}
             selectedItems={selectedItems}
             handleSelectItem={handleSelectItem}
+            isLoading={isLoading}
           />
         )}
 

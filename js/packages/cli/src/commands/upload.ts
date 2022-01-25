@@ -1,31 +1,24 @@
-import fs from 'fs';
 import { readFile } from 'fs/promises';
 import path from 'path';
-
-import { PublicKey } from '@solana/web3.js';
-import { BN } from '@project-serum/anchor';
-
 import log from 'loglevel';
-
 import {
-<<<<<<< HEAD
-  createConfig,
-=======
   createCandyMachineV2,
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
   loadCandyProgram,
   loadWalletKey,
 } from '../helpers/accounts';
+import { PublicKey } from '@solana/web3.js';
+import fs from 'fs';
+import { BN, Program, web3 } from '@project-serum/anchor';
+
 import { loadCache, saveCache } from '../helpers/cache';
 import { arweaveUpload } from '../helpers/upload/arweave';
 import { makeArweaveBundleUploadGenerator } from '../helpers/upload/arweave-bundle';
 import { awsUpload } from '../helpers/upload/aws';
 import { ipfsCreds, ipfsUpload } from '../helpers/upload/ipfs';
+
 import { StorageType } from '../helpers/storage-type';
-import { chunks } from '../helpers/various';
-<<<<<<< HEAD
 import { AssetKey } from '../types';
-=======
+import { chunks } from '../helpers/various';
 
 export async function uploadV2({
   files,
@@ -366,7 +359,6 @@ export async function uploadV2({
   console.log(`Done. Successful = ${uploadSuccessful}.`);
   return uploadSuccessful;
 }
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 
 /**
  * The Cache object, represented in its minimal form.
@@ -421,11 +413,11 @@ function getAssetKeysNeedingUpload(
     .reduce((acc, assetKey) => {
       const ext = path.extname(assetKey);
       const key = path.basename(assetKey, ext);
+
       if (!items[key]?.link && !keyMap[key]) {
         keyMap[key] = true;
         acc.push({ mediaExt: ext, index: key });
       }
-      console.log(acc);
       return acc;
     }, [])
     .sort((a, b) => Number.parseInt(a.key, 10) - Number.parseInt(b.key, 10));

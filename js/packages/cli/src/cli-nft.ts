@@ -5,14 +5,9 @@ import { getMetadata, loadWalletKey } from './helpers/accounts';
 import { parseUses } from './helpers/various';
 import { web3 } from '@project-serum/anchor';
 import { PublicKey } from '@solana/web3.js';
-<<<<<<< HEAD
-
-program.version('0.0.1');
-=======
 import { getCluster } from './helpers/various';
 import { MetadataData } from '@metaplex-foundation/mpl-token-metadata';
 program.version('1.1.0');
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 log.setLevel('info');
 
 programCommand('mint')
@@ -25,10 +20,6 @@ programCommand('mint')
   .option('-tum, --total-uses <number>', 'Optional: Allowed Number of Uses')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   .action(async (directory, cmd) => {
-<<<<<<< HEAD
-    const { keypair, env, url } = cmd.opts();
-    const solConnection = new web3.Connection(web3.clusterApiUrl(env));
-=======
     const { keypair, env, url, collection, useMethod, totalUses } = cmd.opts();
     const solConnection = new web3.Connection(getCluster(env));
     let structuredUseMethod;
@@ -37,7 +28,6 @@ programCommand('mint')
     } catch (e) {
       log.error(e);
     }
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
     const walletKeyPair = loadWalletKey(keypair);
     let collectionKey;
     if (collection !== undefined) {
@@ -67,7 +57,7 @@ programCommand('update-metadata')
     const { keypair, env, mint, url, collection, useMethod, totalUses } =
       cmd.opts();
     const mintKey = new PublicKey(mint);
-    const solConnection = new web3.Connection(web3.clusterApiUrl(env));
+    const solConnection = new web3.Connection(getCluster(env));
     const walletKeyPair = loadWalletKey(keypair);
     let structuredUseMethod;
     try {

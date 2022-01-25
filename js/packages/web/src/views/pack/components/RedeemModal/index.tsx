@@ -38,6 +38,8 @@ const RedeemModal = ({
 
   const numberOfNFTs = pack?.info?.packCards || 0;
   const numberOfAttempts = pack?.info?.allowedAmountToRedeem || 0;
+  const shouldEnableRedeem =
+    process.env.NEXT_ENABLE_NFT_PACKS_REDEEM === 'true';
 
   const art = useArt(voucherMetadataKey);
   const creators = (art.creators || []).map(
@@ -70,14 +72,11 @@ const RedeemModal = ({
 
   const isModalClosable = modalState === openState.Initial;
   const isClaiming = modalState === openState.Claiming;
-<<<<<<< HEAD
-=======
   const isClaimingError = modalState === openState.Error;
   const isLoadingMetadata =
     isLoading ||
     Object.values(metadataByPackCard || {}).length !==
       (pack?.info.packCards || 0);
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 
   return (
     <Modal
@@ -102,19 +101,14 @@ const RedeemModal = ({
                 numberOfAttempts={numberOfAttempts}
                 numberOfNFTs={numberOfNFTs}
                 creators={creators}
+                isLoadingMetadata={isLoadingMetadata}
               />
             )}
             {modalState === openState.TransactionApproval && (
               <TransactionApprovalStep
-                goBack={() => setModalState(openState.Claiming)}
+                goBack={() => setModalState(openState.Initial)}
               />
             )}
-<<<<<<< HEAD
-            <div className="modal-redeem__footer">
-              <p className="general-desc">
-                Once opened, a Pack cannot be resealed.
-              </p>
-=======
             {isClaimingError && (
               <ClaimingError
                 onDismiss={() => setModalState(openState.Initial)}
@@ -126,14 +120,18 @@ const RedeemModal = ({
                 <p className="general-desc">
                   Once opened, a Pack cannot be resealed.
                 </p>
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 
-              <button className="modal-redeem__open-nft" onClick={onClickOpen}>
-                <span>
-                  {provingProcess ? 'Resume Opening Pack' : 'Open Pack'}
-                </span>
-              </button>
-            </div>
+                <button
+                  className="modal-redeem__open-nft"
+                  disabled={isLoadingMetadata}
+                  onClick={onClickOpen}
+                >
+                  <span>
+                    {provingProcess ? 'Resume Opening Pack' : 'Open Pack'}
+                  </span>
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>

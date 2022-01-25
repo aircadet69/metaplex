@@ -2,13 +2,8 @@ import { LAMPORTS_PER_SOL, AccountInfo } from '@solana/web3.js';
 import fs from 'fs';
 import weighted from 'weighted';
 import path from 'path';
-import { Program, web3 } from '@project-serum/anchor';
+import { BN, Program, web3 } from '@project-serum/anchor';
 import { Token, TOKEN_PROGRAM_ID } from '@solana/spl-token';
-<<<<<<< HEAD
-
-const { readFile } = fs.promises;
-
-=======
 import { StorageType } from './storage-type';
 import { getAtaForMint } from './accounts';
 import { CLUSTERS, DEFAULT_CLUSTER } from './constants';
@@ -209,7 +204,6 @@ export async function getCandyMachineV2Config(
     arweaveJwk,
   };
 }
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
 export async function readJsonFile(fileName: string) {
   const file = await readFile(fileName, 'utf-8');
   return JSON.parse(file);
@@ -515,8 +509,6 @@ export const getPriceWithMantissa = async (
 
   return Math.ceil(price * mantissa);
 };
-<<<<<<< HEAD
-=======
 
 export function getCluster(name: string): string {
   for (const cluster of CLUSTERS) {
@@ -537,4 +529,3 @@ export function parseUses(useMethod: string, total: number): Uses | null {
   }
   return null;
 }
->>>>>>> 04d3eb9883272f92fde2bc894e585e417f880384
