@@ -23,6 +23,15 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == auctionView.auction.info.tokenMint)[0]
   const { status, amount } = useAuctionStatus(auctionView);
 
+  let badge = '';
+  if (art.type === ArtType.NFT) {
+    badge = 'Unique';
+  } else if (art.type === ArtType.Master) {
+    badge = 'NFT 0';
+  } else if (art.type === ArtType.Print) {
+    badge = `${art.edition} of ${art.supply}`;
+  }
+
   const card = (
     <Card hoverable={true} className={`auction-render-card`} bordered={false}>
       <div className={'card-art-info'}>
@@ -35,6 +44,9 @@ export const AuctionRenderCard = (props: AuctionCard) => {
                 'Go to auction'}
               ...
             </span>
+          </div>
+          <div className="art-card__header">
+           <div className="edition-badge">{badge}</div>
           </div>
           <div className={'art-content-wrapper'}>
             <ArtContent
