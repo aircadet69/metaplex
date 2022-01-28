@@ -4,6 +4,7 @@ import { ArtContent } from '../ArtContent';
 import { AuctionView, useArt, useCreators } from '../../hooks';
 import { AmountLabel } from '../AmountLabel';
 import { MetaAvatar } from '../MetaAvatar';
+import { Artist, ArtType } from '../../types';
 import { AuctionCountdown } from '../AuctionNumbers';
 
 import { useAuctionStatus } from './hooks/useAuctionStatus';
