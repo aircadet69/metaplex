@@ -24,6 +24,8 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == auctionView.auction.info.tokenMint)[0]
   const { status, amount } = useAuctionStatus(auctionView);
 
+  console.log( art );
+
   let badge = '';
   if (art.type === ArtType.NFT) {
     badge = `${art.edition} of ${art.supply}`;
