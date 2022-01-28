@@ -26,7 +26,7 @@ export const AuctionRenderCard = (props: AuctionCard) => {
 
   let badge = '';
   if (art.type === ArtType.NFT) {
-    badge = 'Unique';
+    badge = `${art.edition} of ${art.supply}`;
   } else if (art.type === ArtType.Master) {
     badge = 'NFT 0';
   } else if (art.type === ArtType.Print) {
