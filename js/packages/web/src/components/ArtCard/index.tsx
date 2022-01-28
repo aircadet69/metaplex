@@ -54,6 +54,8 @@ export const ArtCard = (props: ArtCardProps) => {
   creators = art?.creators || creators || [];
   name = art?.title || name || ' ';
 
+console.log( art );
+
   let badge = '';
   if (art.type === ArtType.NFT) {
     badge = `${art.edition} of ${art.supply}`;
