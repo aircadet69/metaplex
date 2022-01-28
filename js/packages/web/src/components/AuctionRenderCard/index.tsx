@@ -4,7 +4,6 @@ import { ArtContent } from '../ArtContent';
 import { AuctionView, useArt, useCreators } from '../../hooks';
 import { AmountLabel } from '../AmountLabel';
 import { MetaAvatar } from '../MetaAvatar';
-import { Artist, ArtType } from '../../types';
 import { AuctionCountdown } from '../AuctionNumbers';
 
 import { useAuctionStatus } from './hooks/useAuctionStatus';
@@ -24,18 +23,6 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == auctionView.auction.info.tokenMint)[0]
   const { status, amount } = useAuctionStatus(auctionView);
 
-  console.log( art );
-  console.log( tokenInfo );
-
-  let badge = '';
-  if (art.type === ArtType.NFT) {
-    badge = `${art.edition} of ${art.supply}`;
-  } else if (art.type === ArtType.Master) {
-    badge = 'NFT 0';
-  } else if (art.type === ArtType.Print) {
-    badge = `${art.edition} of ${art.supply}`;
-  }
-
   const card = (
     <Card hoverable={true} className={`auction-render-card`} bordered={false}>
       <div className={'card-art-info'}>
@@ -48,9 +35,6 @@ export const AuctionRenderCard = (props: AuctionCard) => {
                 'Go to auction'}
               ...
             </span>
-          </div>
-          <div className="art-card__header">
-           <div className="edition-badge">{badge}</div>
           </div>
           <div className={'art-content-wrapper'}>
             <ArtContent
