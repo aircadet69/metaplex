@@ -49,7 +49,7 @@
     "three": "^0.128.0",
     "timeago.js": "^4.0.2",
     "styled-components": "^5.0.0",
-    "swr": "^1.2.0"
+    "@vercel/swr": "^1.2.0"
   },
   "scripts": {
     "prestart": "npm-link-shared ../common/node_modules/ . react",
