@@ -4,6 +4,39 @@ import { Link, useParams } from 'react-router-dom';
 import { ArtCard } from '../../components/ArtCard';
 import { CardLoader } from '../../components/MyLoader';
 import { useCreator, useCreatorArts } from '../../hooks';
+import useSWR from "swr";
+
+const RenderOwnedList = ({ feed }: { feed: string }) => {
+  const { data, error } = useSWR( `${feed}`,
+    (url: string) => fetch(url).then((res) => res.json())
+  );
+
+  console.log( data )
+
+  if (!data) {
+    // loading
+    return <Fragment />;
+  }
+  if (error) {
+    // error
+    return <Fragment />;
+  }
+
+  return data.response.results.map((kuser: any) => {
+
+   console.log( kuser )
+
+    return (
+ 
+            <div className="featured-item">
+        <div className="featured-item-image"><img src={kuser.ProfilePicture}/></div>
+         <div className="featured-item-title">{kuser.Bio}</div>
+</div>
+
+
+    );
+  });
+};
 
 export const ArtistView = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,6 +77,11 @@ export const ArtistView = () => {
             </h2>
             <br />
             <div className="info-header">ABOUT THE CREATOR</div>
+
+               <div className="feature-list">
+  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser"/>
+            </div>
+
             <div className="info-content">{creator?.info.description}</div>
             <br />
             <div className="info-header">Art Created</div>
