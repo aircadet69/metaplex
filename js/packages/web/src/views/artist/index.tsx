@@ -1,5 +1,5 @@
 import { Col, Divider, Row } from 'antd';
-import { React, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArtCard } from '../../components/ArtCard';
 import { CardLoader } from '../../components/MyLoader';
