@@ -79,7 +79,7 @@ export const ArtistView = () => {
             <div className="info-header">ABOUT THE CREATOR</div>
 
                <div className="feature-list">
-  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%225koFW4Y97wBZ61yMwRVYGNLdhgueY9u9Pr3jTbZxgucg%22%7D%5D"/>
+  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22${creator?.info.address}%22%7D%5D"/>
             </div>
 
             <div className="info-content">{creator?.info.description}</div>
