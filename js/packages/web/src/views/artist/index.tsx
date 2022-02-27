@@ -7,10 +7,13 @@ import { useCreator, useCreatorArts } from '../../hooks';
 import useSWR from "swr";
 
 const RenderOwnedList = ({ feed }: { feed: string }) => {
-  console.log( feed )
   const { data, error } = useSWR( `${feed}`,
     (url: string) => fetch(url).then((res) => res.json())
   );
+
+  const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22" + {creator?.info.address} + "%22%7D%5D";
+
+  console.log( feed2 )
 
   console.log( data )
 
@@ -80,7 +83,7 @@ export const ArtistView = () => {
             <div className="info-header">ABOUT THE CREATOR</div>
 
                <div className="feature-list">
-  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22"+{creator?.info.address}+"%22%7D%5D"/>
+  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22${creator?.info.address}%22%7D%5D"/>
             </div>
 
             <div className="info-content">{creator?.info.description}</div>
