@@ -43,6 +43,10 @@ export const ArtistView = () => {
             <div className="featured-item">
         <div className="featured-item-image"><img src={kuser.ProfilePicture}/></div>
          <div className="featured-item-title">{kuser.Bio}</div>
+         <div className="featured-item-title">{kuser.Twitter}</div>
+         <div className="featured-item-title">{kuser.Instagram}</div>
+         <div className="featured-item-title">{kuser.Website}</div>
+         <div className="featured-item-title">{kuser.Bio}</div>
 </div>
 
 
