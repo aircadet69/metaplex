@@ -12,16 +12,16 @@ export const ArtistView = () => {
   const creator = useCreator(id);
   const artwork = useCreatorArts(id);
 
-  const RenderOwnedList = ({ feed }: { feed: string }) => {
-  const { data, error } = useSWR( `${feed}`,
-    (url: string) => fetch(url).then((res) => res.json())
-  );
-
-  console.log( id )
-
   const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22"+id+"%22%7D%5D";
 
   console.log( feed2 )
+
+  const RenderOwnedList = ({ feed }: { feed: string }) => {
+  const { data, error } = useSWR( feed2,
+    (url: string) => fetch(url).then((res) => res.json())
+  );
+
+
 
   console.log( data )
 
