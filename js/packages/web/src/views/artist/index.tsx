@@ -6,7 +6,13 @@ import { CardLoader } from '../../components/MyLoader';
 import { useCreator, useCreatorArts } from '../../hooks';
 import useSWR from "swr";
 
-const RenderOwnedList = ({ feed }: { feed: string }) => {
+
+export const ArtistView = () => {
+  const { id } = useParams<{ id: string }>();
+  const creator = useCreator(id);
+  const artwork = useCreatorArts(id);
+
+  const RenderOwnedList = ({ feed }: { feed: string }) => {
   const { data, error } = useSWR( `${feed}`,
     (url: string) => fetch(url).then((res) => res.json())
   );
@@ -42,10 +48,7 @@ const RenderOwnedList = ({ feed }: { feed: string }) => {
   });
 };
 
-export const ArtistView = () => {
-  const { id } = useParams<{ id: string }>();
-  const creator = useCreator(id);
-  const artwork = useCreatorArts(id);
+
 
   const artworkGrid = (
     <div className="artwork-grid">
