@@ -7,6 +7,7 @@ import { useCreator, useCreatorArts } from '../../hooks';
 import useSWR from "swr";
 
 const RenderOwnedList = ({ feed }: { feed: string }) => {
+  console.log( feed )
   const { data, error } = useSWR( `${feed}`,
     (url: string) => fetch(url).then((res) => res.json())
   );
