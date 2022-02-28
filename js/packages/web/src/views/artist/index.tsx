@@ -41,14 +41,14 @@ export const ArtistView = () => {
     return (
  
             <div className="profilewrap">
-            <div class="profilecover">cover</div>
-            <div class="profilemain">
+            <div className="profilecover">cover</div>
+            <div className="profilemain">
         <div className="profileitem profilepicture"><img src={kuser.ProfilePicture}/></div>
          <div className="profileitem username">{kuser.Username}</div>
          <div className="profileitem biography">{kuser.Bio}</div>
-         <div className="sociallink twitter">{kuser.Twitter}</div>
-         <div className="sociallink instagram">{kuser.Instagram}</div>
-         <div className="sociallink website">{kuser.Website}</div>
+         <div className="sociallink twitter"><a href={kuser.Twitter}>{kuser.Twitter}</a></div>
+         <div className="sociallink instagram"><a href={kuser.Instagram}>{kuser.Instagram}</a></div>
+         <div className="sociallink website"><a href={kuser.Website}>{kuser.Website}</a></div>
          </div>
 </div>
 
