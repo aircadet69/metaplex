@@ -46,7 +46,7 @@ export const ArtistView = () => {
          <div className="featured-item-title">{kuser.Twitter}</div>
          <div className="featured-item-title">{kuser.Instagram}</div>
          <div className="featured-item-title">{kuser.Website}</div>
-         <div className="featured-item-title">{kuser.Bio}</div>
+         <div className="featured-item-title">{kuser.Username}</div>
 </div>
 
 
