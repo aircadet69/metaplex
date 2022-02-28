@@ -41,10 +41,10 @@ export const ArtistView = () => {
     return (
  
             <div className="profilewrap">
-            <div className="profilecover">cover</div>
+            <div className="profilecover">{kuser.CoverPicture}</div>
             <div className="profilemain">
         <div className="profileitem profilepicture"><img src={kuser.ProfilePicture}/></div>
-         <div className="profileitem username">{kuser.Username}</div>
+         <div className="profileitem username">{kuser.Username} <div className="verifiedtick"><div className={kuser.Verified}></div></div></div>
          <div className="profileitem biography">{kuser.Bio}</div>
          <div className="sociallink twitter"><a href={kuser.Twitter}>{kuser.Twitter}</a></div>
          <div className="sociallink instagram"><a href={kuser.Instagram}>{kuser.Instagram}</a></div>
@@ -87,12 +87,7 @@ export const ArtistView = () => {
           style={{ margin: '0 30px', textAlign: 'left', fontSize: '1.4rem' }}
         >
           <Col span={24}>
-            <h2>
-              {/* <MetaAvatar creators={creator ? [creator] : []} size={100} /> */}
-              {creator?.info.name || creator?.info.address}
-            </h2>
-            <br />
-            <div className="info-header">ABOUT THE CREATOR</div>
+        
 
                <div className="feature-list">
   <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22${creator?.info.address}%22%7D%5D"/>
