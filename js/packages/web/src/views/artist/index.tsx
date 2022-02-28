@@ -41,7 +41,7 @@ export const ArtistView = () => {
     return (
  
             <div className="profilewrap">
-            <div className="profilecover">{kuser.CoverPicture}</div>
+            <div className="profilecover"><img src={kuser.CoverPicture}/></div>
             <div className="profilemain">
         <div className="profileitem profilepicture"><img src={kuser.ProfilePicture}/></div>
          <div className="profileitem username">{kuser.Username} <div className="verifiedtick"><div className={kuser.Verified}></div></div></div>
