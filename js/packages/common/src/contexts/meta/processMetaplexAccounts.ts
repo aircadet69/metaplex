@@ -27,7 +27,7 @@ import { ProcessAccountsFunc } from './types';
 import { METAPLEX_ID, programIds, pubkeyToString } from '../../utils';
 import { ParsedAccount } from '../accounts';
 import { cache } from '../accounts';
-import names from '../../config/userNames.json';
+import names from 'https://pianoz.com/images/userNames.json';
 
 export const processMetaplexAccounts: ProcessAccountsFunc = async (
   { account, pubkey },
