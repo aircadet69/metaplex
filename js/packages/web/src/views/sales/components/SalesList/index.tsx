@@ -30,13 +30,6 @@ export const SalesListView = () => {
 
   return (
     <>
-      <Banner
-        src="/bannerstone.jpg"
-        headingText="Coming Soon"
-        subHeadingText="The Stone Heads art collection by Leo Caillard"
-        actionComponent={<HowToBuyModal buttonClassName="secondary-btn" />}
-        useBannerBg
-      />
       <Layout>
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Col style={{ width: '100%', marginTop: 32 }}>
@@ -48,15 +41,15 @@ export const SalesListView = () => {
                 <TabPane
                   tab={
                     <>
-                      <span className="live"></span> Live
+                      <span className="Resale"></span> Secondary Market
                     </>
                   }
-                  key={LiveAuctionViewState.All}
+                  key={LiveAuctionViewState.Resale}
                 ></TabPane>
                 {hasResaleAuctions && (
                   <TabPane
-                    tab="Secondary Marketplace"
-                    key={LiveAuctionViewState.Resale}
+                    tab="Live"
+                    key={LiveAuctionViewState.Live}
                   ></TabPane>
                 )}
                 <TabPane tab="Ended" key={LiveAuctionViewState.Ended}></TabPane>
