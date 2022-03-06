@@ -31,9 +31,9 @@ export const SalesListView = () => {
   return (
     <>
       <Banner
-        src="/banner2.jpeg"
-        headingText="FEDERICO CHIESA NFT AUCTION"
-        subHeadingText="EURO 2020 TRIBUTE"
+        src="/bannerstone.jpg"
+        headingText="Coming Soon"
+        subHeadingText="The Stone Heads art collection by Leo Caillard"
         actionComponent={<HowToBuyModal buttonClassName="secondary-btn" />}
         useBannerBg
       />
