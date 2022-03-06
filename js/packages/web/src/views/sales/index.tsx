@@ -9,11 +9,11 @@ export const SalesView = () => {
   const { isLoading, store } = useMeta();
   const { isConfigured } = useStore();
 
-  const showAuctions = (store && isConfigured) || isLoading;
+  const showAuctions2 = (store && isConfigured) || isLoading;
 
   return (
     <Layout style={{ margin: 0, marginTop: 30, alignItems: 'center' }}>
-      {showAuctions ? <SalesListView2 /> : <SetupView />}
+      <SalesListView2 /> 
           <h2>Sales</h2>
     </Layout>
   );
