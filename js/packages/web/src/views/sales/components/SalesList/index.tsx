@@ -22,7 +22,7 @@ export enum LiveAuctionViewState {
   Own = '4',
 }
 
-export const SalesListView = () => {
+export const SalesListView2 = () => {
   const [activeKey, setActiveKey] = useState(LiveAuctionViewState.All);
   const { isLoading } = useMeta();
   const { connected } = useWallet();
