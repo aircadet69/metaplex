@@ -122,18 +122,22 @@ const Countdown = ({ state }: { state?: CountdownState }) => {
           </div>
         </Col>
       )}
+      {localState.hours > 0 && (
       <Col>
         <div className="cd-number">
           {localState.hours}
           <span style={{ opacity: 0.5 }}>hours</span>
         </div>
       </Col>
+      )}
+      {localState.minutes > 0 && (
       <Col>
         <div className="cd-number">
           {localState.minutes}
           <span style={{ opacity: 0.5 }}>min</span>
         </div>
       </Col>
+      )}
       {!localState.days && (
         <Col>
           <div className="cd-number">
@@ -176,7 +180,6 @@ const LabeledCountdown = ({ state }: { state?: CountdownState }) => {
                     <div className="cd-label">days</div>
                   </Col>
                 )}
-                {state && state.days > 0 && state.hours > 0 &&(
                 <Col>
                   <div className="cd-number">
                     {state.hours}
@@ -184,7 +187,7 @@ const LabeledCountdown = ({ state }: { state?: CountdownState }) => {
                   </div>
                   <div className="cd-label">hour</div>
                 </Col>
-                )}
+                {state && state.minutes > 0 &&(
                 <Col>
                   <div className="cd-number">
                     {state.minutes}
@@ -194,6 +197,7 @@ const LabeledCountdown = ({ state }: { state?: CountdownState }) => {
                   </div>
                   <div className="cd-label">mins</div>
                 </Col>
+                )}
                 {!state.days && (
                   <Col>
                     <div className="cd-number">{state.seconds}</div>
