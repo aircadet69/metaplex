@@ -34,7 +34,7 @@ export const useAuctionStatus = (
       ? auctionView.auction.info.priceFloor.minPrice?.toNumber() || 0
       : 0;
 
-  let status = 'Starting Bid';
+  let status = 'Buy It Now';
 
   let amount: string | number = fromLamports(
     participationOnly ? participationFixedPrice : priceFloor,
@@ -47,6 +47,10 @@ export const useAuctionStatus = (
 
   if (isOpen) {
     status = 'Open Sale';
+  }
+
+  if (countdown?.minutes > 0){
+    status = 'Auction Open, Starting Bid';
   }
 
   const ended =

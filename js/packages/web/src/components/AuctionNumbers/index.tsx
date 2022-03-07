@@ -117,7 +117,7 @@ const Countdown = ({ state }: { state?: CountdownState }) => {
       {localState.days > 0 && (
         <Col>
           <div className="cd-number">
-            {localState.days} {isEnded} 
+            {localState.days}
             <span style={{ opacity: 0.5 }}>days</span>
           </div>
         </Col>
