@@ -176,6 +176,7 @@ const LabeledCountdown = ({ state }: { state?: CountdownState }) => {
                     <div className="cd-label">days</div>
                   </Col>
                 )}
+                {state && state.days > 0 && state.hours > 0 &&(
                 <Col>
                   <div className="cd-number">
                     {state.hours}
@@ -183,6 +184,7 @@ const LabeledCountdown = ({ state }: { state?: CountdownState }) => {
                   </div>
                   <div className="cd-label">hour</div>
                 </Col>
+                )}
                 <Col>
                   <div className="cd-number">
                     {state.minutes}
