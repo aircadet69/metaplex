@@ -114,6 +114,13 @@ const Countdown = ({ state }: { state?: CountdownState }) => {
       style={{ width: '100%', flexWrap: 'nowrap' }}
       className={'no-label-cd'}
     >
+      {localState.minutes > 0 || localState.hours > 0 && (
+      <Col>
+        <div className="cd-number">
+          <span style={{ opacity: 0.5 }}>Ending In</span>
+        </div>
+      </Col>
+      )}
       {localState.days > 0 && (
         <Col>
           <div className="cd-number">
