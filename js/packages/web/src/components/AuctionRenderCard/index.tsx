@@ -23,6 +23,10 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == auctionView.auction.info.tokenMint)[0]
   const { status, amount } = useAuctionStatus(auctionView);
 
+  var nameclass = {name}
+nameclass = nameclass.replace(/\s+/g, '-').toLowerCase();
+console.log(nameclass); 
+
   const card = (
     <Card hoverable={true} className={`auction-render-card`} bordered={false}>
      <div className={name}>
