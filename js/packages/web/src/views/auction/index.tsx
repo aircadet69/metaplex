@@ -94,6 +94,8 @@ export const AuctionView = () => {
     pullAuctionPage(id);
   }, []);
 
+  console.log( creators )
+
   let edition = '';
   if (art.type === ArtType.NFT) {
     edition = 'Unique';
@@ -235,7 +237,6 @@ export const AuctionView = () => {
             <h6 className={'info-title'}>Artists</h6>
             <div style={{ display: 'flex' }}>
               <MetaAvatarDetailed creators={creators} />
-              <span>{creators.address}</span>
             </div>
           </div>
         </Col>
