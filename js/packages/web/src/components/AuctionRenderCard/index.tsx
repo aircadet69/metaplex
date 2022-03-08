@@ -25,6 +25,7 @@ export const AuctionRenderCard = (props: AuctionCard) => {
 
   const card = (
     <Card hoverable={true} className={`auction-render-card`} bordered={false}>
+     <div className={name}>
       <div className={'card-art-info'}>
         <div className="auction-gray-wrapper">
           <div className={'card-artist-info'}>
@@ -60,6 +61,7 @@ export const AuctionRenderCard = (props: AuctionCard) => {
           iconSize={24}
           tokenInfo={tokenInfo}
         />
+      </div>
       </div>
     </Card>
   );
