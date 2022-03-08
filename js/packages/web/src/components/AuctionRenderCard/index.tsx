@@ -24,8 +24,7 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const { status, amount } = useAuctionStatus(auctionView);
 
   var nameclass = {name}
-nameclass = nameclass[0].replace(/\s+/g, '-').toLowerCase();
-console.log(nameclass); 
+console.log( nameclass ); 
 
   const card = (
     <Card hoverable={true} className={`auction-render-card`} bordered={false}>
