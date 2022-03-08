@@ -5,9 +5,6 @@ import { ArtCard } from '../../components/ArtCard';
 import { CardLoader } from '../../components/MyLoader';
 import { useCreator, useCreatorArts } from '../../hooks';
 import useSWR from "swr";
-import { useMeta } from '../../../../contexts';
-import { useAuctionsList } from './hooks/useAuctionsList';
-import { AuctionRenderCard } from '../../../../components/AuctionRenderCard';
 
 
 export const ArtistView = () => {
@@ -59,7 +56,6 @@ export const ArtistView = () => {
     );
   });
 };
-
 
 
 
