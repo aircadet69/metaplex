@@ -49,7 +49,7 @@ export const useAuctionStatus = (
     status = 'Open Sale';
   }
 
-  if (countdown?.minutes > 0){
+  if (countdown?.minutes > 0 || countdown?.hours > 0 ){
     status = 'Auction Open, Starting Bid';
   }
 
