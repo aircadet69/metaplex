@@ -235,6 +235,7 @@ export const AuctionView = () => {
             <h6 className={'info-title'}>Artists</h6>
             <div style={{ display: 'flex' }}>
               <MetaAvatarDetailed creators={creators} />
+              <span>{creators.address}</span>
             </div>
           </div>
         </Col>
