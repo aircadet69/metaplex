@@ -23,7 +23,8 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == auctionView.auction.info.tokenMint)[0]
   const { status, amount } = useAuctionStatus(auctionView);
 
-  var nameclass = {name.name}
+  var nameclass = {name[0]}
+nameclass = nameclass.replace(/\s+/g, '-').toLowerCase();
 console.log( nameclass ); 
 
   const card = (
