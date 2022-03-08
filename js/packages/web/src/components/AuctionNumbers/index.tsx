@@ -138,14 +138,6 @@ const Countdown = ({ state }: { state?: CountdownState }) => {
         </div>
       </Col>
       )}
-      {!localState.days && (
-        <Col>
-          <div className="cd-number">
-            {localState.seconds}
-            <span style={{ opacity: 0.5 }}>sec</span>
-          </div>
-        </Col>
-      )}
     </Row>
   );
 };
