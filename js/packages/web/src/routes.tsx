@@ -75,6 +75,7 @@ export function Routes() {
               component={() => <BillingView />}
             />
             <Route path="/about" component={() => <StaticPageView />} />
+            <Route path="/sales" component={() => <SalesView />} />
             <Route path="/" component={() => <HomeView />} />
           </Switch>
         </Providers>
