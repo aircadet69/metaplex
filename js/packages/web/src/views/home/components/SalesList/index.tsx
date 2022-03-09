@@ -83,12 +83,11 @@ export const SalesListView = () => {
                     <Link
                       key={auction.auction.pubkey}
                       to={`/auction/${auction.auction.pubkey}`}
+                      className={auction.auction.pubkey}
                      >
                       <AuctionRenderCard auctionView={auction} />
                     </Link>
-                  )
-                  console.log(auction);
-                  )}
+                  ))}
               </div>
             </Row>
           </Col>
