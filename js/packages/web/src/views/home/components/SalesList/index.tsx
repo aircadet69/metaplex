@@ -43,54 +43,10 @@ export const SalesListView = () => {
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Col style={{ width: '100%', marginTop: 32 }}>
             <Row>
-              <Tabs
-                activeKey={activeKey}
-                onTabClick={key => setActiveKey(key as LiveAuctionViewState)}
-              >
-                <TabPane
-                  tab={
-                    <>
-                      <span className="live"></span> Live
-                    </>
-                  }
-                  key={LiveAuctionViewState.All}
-                ></TabPane>
-                {hasResaleAuctions && (
-                  <TabPane
-                    tab="Secondary Marketplace"
-                    key={LiveAuctionViewState.Resale}
-                  ></TabPane>
-                )}
-                <TabPane tab="Ended" key={LiveAuctionViewState.Ended}></TabPane>
-                {connected && (
-                  <TabPane
-                    tab="Participated"
-                    key={LiveAuctionViewState.Participated}
-                  ></TabPane>
-                )}
-                {connected && (
-                  <TabPane
-                    tab="My Live Auctions"
-                    key={LiveAuctionViewState.Own}
-                  ></TabPane>
-                )}
-              </Tabs>
+              
             </Row>
             <Row>
-              <div className="artwork-grid">
-                {isLoading &&
-                  [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
-                {!isLoading &&
-                  auctions.map(auction => (
-                    <Link
-                      key={auction.auction.pubkey}
-                      to={`/auction/${auction.auction.pubkey}`}
-                      className={auction.auction.pubkey}
-                     >
-                      <AuctionRenderCard auctionView={auction} />
-                    </Link>
-                  ))}
-              </div>
+             
             </Row>
           </Col>
         </Content>
