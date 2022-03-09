@@ -28,7 +28,7 @@ export const SalesListView = () => {
   const { connected } = useWallet();
   const { auctions, hasResaleAuctions } = useAuctionsList(activeKey);
 
-  console.log( auctons );
+  console.log( auctions );
 
   return (
     <>
