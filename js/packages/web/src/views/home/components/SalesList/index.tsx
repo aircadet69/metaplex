@@ -86,8 +86,9 @@ export const SalesListView = () => {
                      >
                       <AuctionRenderCard auctionView={auction} />
                     </Link>
-                    console.log( auction )
-                  ))}
+                  )
+                  console.log(auction);
+                  )}
               </div>
             </Row>
           </Col>
