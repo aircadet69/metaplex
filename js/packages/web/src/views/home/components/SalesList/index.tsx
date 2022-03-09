@@ -28,6 +28,8 @@ export const SalesListView = () => {
   const { connected } = useWallet();
   const { auctions, hasResaleAuctions } = useAuctionsList(activeKey);
 
+  console.log( auctons );
+
   return (
     <>
       <Banner
@@ -83,7 +85,7 @@ export const SalesListView = () => {
                     <Link
                       key={auction.auction.pubkey}
                       to={`/auction/${auction.auction.pubkey}`}
-                      className={auction.auction.title}
+                      className={auction.auction.pubkey}
                      >
                       <AuctionRenderCard auctionView={auction} />
                     </Link>
