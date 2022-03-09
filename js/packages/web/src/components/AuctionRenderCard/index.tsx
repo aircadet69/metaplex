@@ -28,8 +28,7 @@ nameclass = nameclass.replace(/\s+/g, '-').toLowerCase();
 console.log( nameclass ); 
 
   const card = (
-    <Card hoverable={true} className={`auction-render-card`} bordered={false}>
-     <div className={nameclass}>
+    <Card hoverable={true} className={`auction-render-card`} className={nameclass} bordered={false}>
       <div className={'card-art-info'}>
         <div className="auction-gray-wrapper">
           <div className={'card-artist-info'}>
@@ -65,7 +64,6 @@ console.log( nameclass );
           iconSize={24}
           tokenInfo={tokenInfo}
         />
-      </div>
       </div>
     </Card>
   );
