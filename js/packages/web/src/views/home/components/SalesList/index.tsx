@@ -73,8 +73,8 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Kreati
 
         );
   });
-
-
+};
+    
 
   return (
     <>
