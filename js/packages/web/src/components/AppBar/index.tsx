@@ -19,11 +19,11 @@ const getDefaultLinkActions = (connected: boolean) => {
     <Link to={`/`} key={'explore'}>
       <Button className="app-btn">Explore</Button>
     </Link>,
+    <Link to={`/sales`} key={'sales'}>
+      <Button className="app-btn">Buy NFTs</Button>
+    </Link>,
     <Link to={`/artworks`} key={'artwork'}>
       <Button className="app-btn">{connected ? 'My Items' : ' '}</Button>
-    </Link>,
-    <Link to={`/sales`} key={'sales'}>
-      <Button className="app-btn">Sales</Button>
     </Link>,
     <Link to={`/artists`} key={'artists'}>
       <Button className="app-btn">Creators</Button>

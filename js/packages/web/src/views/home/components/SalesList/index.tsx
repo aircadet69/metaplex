@@ -32,6 +32,13 @@ export const SalesListView = () => {
 
   return (
     <>
+      <Banner
+        src="/bannerstone.jpg"
+        headingText="Coming Soon"
+        subHeadingText="The Stone Heads art collection by Leo Caillard"
+        actionComponent={<HowToBuyModal buttonClassName="secondary-btn" />}
+        useBannerBg
+      />
       <Layout>
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Col style={{ width: '100%', marginTop: 32 }}>
