@@ -30,7 +30,7 @@ export const SalesListView = () => {
   const { isLoading } = useMeta();
   const { connected } = useWallet();
 
-const feed2 = "https://cms.hofa.io/featured";
+const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel";
 
   console.log( feed2 )
 
@@ -61,10 +61,10 @@ const feed2 = "https://cms.hofa.io/featured";
     return (
  
       <div className="featured-item">
-        <div className="featured-item-image"><a href={token.token.tokenLink}><img src={token.token.image}/></a></div>
-         <div className="featured-item-title"><a href={token.token.tokenLink}>{token.token.title}</a></div>
-        <div className="featured-item-artist"><a href={token.token.tokenLink}>{token.token.artist}</a></div>
-      {token.token.contractAddress} {token.token.tokenID}  </div>
+        <div className="featured-item-image"><a href={token.image}><img src={token.token.image}/></a></div>
+         <div className="featured-item-title"><a href={token.link}>{token.link}</a></div>
+        <div className="featured-item-artist"><a href={token.link}>{token.link}</a></div>
+  </div>
 
 
     );
@@ -94,7 +94,7 @@ const feed2 = "https://cms.hofa.io/featured";
         </Content>
       </Layout>
       <div className="feature-list">
-  <RenderOwnedList feed="https://cms.hofa.io/featured"/>
+  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel"/>
             </div>
     </>
   );
