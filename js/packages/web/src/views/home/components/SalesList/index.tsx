@@ -54,8 +54,6 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
 
   return data.response.results.map((token: any) => {
 
-   const tokendata = data.tokens.map
-
    console.log( token )
 
     return (
