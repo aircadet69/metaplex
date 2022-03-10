@@ -52,29 +52,25 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Kreati
     return <Fragment />;
   }
 
-  return data.response.results.map((kuser: any) => {
+  return data.tokens.map((token: any) => {
 
-   console.log( kuser )
+   const tokendata = data.tokens.map
+
+   console.log( token )
 
     return (
  
-            <div className="profilewrap">
-            <div className="profilecover"><img src={kuser.CoverPicture}/></div>
-            <div className="profilemain">
-        <div className="profileitem profilepicture"><img src={kuser.ProfilePicture}/></div>
-         <div className="profileitem username">{kuser.Username} <div className="verifiedtick"><div className={kuser.Verified}></div></div></div>
-         <div className="profileitem biography">{kuser.Bio}</div>
-         <div className="sociallink twitter"><a href={kuser.Twitter}>{kuser.Twitter}</a></div>
-         <div className="sociallink instagram"><a href={kuser.Instagram}>{kuser.Instagram}</a></div>
-         <div className="sociallink website"><a href={kuser.Website}>{kuser.Website}</a></div>
-         </div>
-</div>
+      <div className="featured-item">
+        <div className="featured-item-image"><a href={token.token.tokenLink}><img src={token.token.image}/></a></div>
+         <div className="featured-item-title"><a href={token.token.tokenLink}>{token.token.title}</a></div>
+        <div className="featured-item-artist"><a href={token.token.tokenLink}>{token.token.artist}</a></div>
+      {token.token.contractAddress} {token.token.tokenID}  </div>
 
 
-        );
+    );
   });
 };
-    
+
 
   return (
     <>
@@ -98,7 +94,7 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Kreati
         </Content>
       </Layout>
       <div className="feature-list">
-  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22EGAeeMKQKCbRYd7F647c8WYbKG79brCAaJozcjWNVzSM%22%7D%5D"/>
+  <RenderOwnedList feed="https://cms.hofa.io/featured"/>
             </div>
     </>
   );
