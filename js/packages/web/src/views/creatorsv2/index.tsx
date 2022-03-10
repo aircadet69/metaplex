@@ -4,24 +4,10 @@ import { Link } from 'react-router-dom';
 import React, { useState, Fragment } from 'react';
 import useSWR from "swr";
 
-import { useMeta } from '../../../../contexts';
-import { CardLoader } from '../../../../components/MyLoader';
-
 import { AuctionRenderCard } from '../../../../components/AuctionRenderCard';
 
-const { TabPane } = Tabs;
-const { Content } = Layout;
 
 
-
-
-export enum LiveAuctionViewState {
-  All = '0',
-  Participated = '1',
-  Ended = '2',
-  Resale = '3',
-  Own = '4',
-}
 
 export const CreatorsViewV2 = () => {
   const [activeKey, setActiveKey] = useState(LiveAuctionViewState.All);
