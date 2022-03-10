@@ -30,7 +30,7 @@ export const SalesListView = () => {
   const { isLoading } = useMeta();
   const { connected } = useWallet();
 
-const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser?&constraints=%5B%7B%22key%22%3A%22kreationuseridv2%22%2C%22constraint_type%22%3A%22text%20contains%22%2C%20%22value%22%3A%22EGAeeMKQKCbRYd7F647c8WYbKG79brCAaJozcjWNVzSM%22%7D%5D";
+const feed2 = "https://cms.hofa.io/featured";
 
   console.log( feed2 )
 
