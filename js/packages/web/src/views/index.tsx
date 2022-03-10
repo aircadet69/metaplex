@@ -7,5 +7,6 @@ export { ArtistsView } from './artists';
 export { AuctionView } from './auction';
 export { AuctionCreateView } from './auctionCreate';
 export { ArtworksView } from './artworks';
+export { CreatorsViewV2 } from './creatorsv2';
 export { AnalyticsView } from './analytics';
 export { StaticPageView } from './staticPage';
