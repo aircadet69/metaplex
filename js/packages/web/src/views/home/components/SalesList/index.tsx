@@ -9,7 +9,6 @@ import { CardLoader } from '../../../../components/MyLoader';
 import { Banner } from '../../../../components/Banner';
 import { HowToBuyModal } from '../../../../components/HowToBuyModal';
 
-import { useAuctionsList } from './hooks/useAuctionsList';
 import { AuctionRenderCard } from '../../../../components/AuctionRenderCard';
 
 const { TabPane } = Tabs;
@@ -71,8 +70,6 @@ export const SalesListView = () => {
   const [activeKey, setActiveKey] = useState(LiveAuctionViewState.All);
   const { isLoading } = useMeta();
   const { connected } = useWallet();
-  const { auctions, hasResaleAuctions } = useAuctionsList(activeKey);
-
   console.log( auctions );
 
   return (
