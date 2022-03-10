@@ -70,7 +70,7 @@ export const SalesListView = () => {
   const [activeKey, setActiveKey] = useState(LiveAuctionViewState.All);
   const { isLoading } = useMeta();
   const { connected } = useWallet();
-  console.log( auctions );
+
 
   return (
     <>
