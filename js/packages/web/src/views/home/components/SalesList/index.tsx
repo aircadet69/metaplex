@@ -52,7 +52,7 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
     return <Fragment />;
   }
 
-  return data.tokens.map((token: any) => {
+  return data.response.results.map((token: any) => {
 
    const tokendata = data.tokens.map
 
