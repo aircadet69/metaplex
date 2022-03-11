@@ -99,13 +99,19 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
             <div className="feature-list">
           
 <div className="featured-item about1">
+<div className="featured-text">
               KREATION IS COLLABORATING WITH THE GREATEST ATHLETES WORLDWIDE, OFFERING FANS A CHANCE TO OWN A PIECE OF THEIR DIGITAL FUTURE 
 </div>
+</div>
 <div className="featured-item about2">
+<div className="featured-text">
              WITH DECADES OF EXPERIENCE IN THE ART WORLD - KREATION BRINGS FORTH THE FINEST CONTEMPORARY DIGITAL ARTIST'S IN THE NFT SPACE 
 </div>
+</div>
 <div className="featured-item about3">
+<div className="featured-text">
              PARTNERING WITH MUSICIANS TO CREATE UNIQUE AND INSPIRING NFTS AND OFFERING THE THE COMMUNITY THE OPPORTUNITY TO GET UP CLOSE AND PERSONAL WITH THEIR MUSICAL HEROES 
+</div>
 </div>
           </div>
         </Content>
