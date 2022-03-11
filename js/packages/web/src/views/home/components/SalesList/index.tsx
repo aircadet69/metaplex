@@ -93,7 +93,7 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
             </div>
 
 <div className="pressline">
-<img src="/pressline.png">
+<img src="/pressline.png"/>
 </div>
 
             <div className="feature-list">
