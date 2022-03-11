@@ -36,7 +36,7 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Kreati
 
    console.log( token )
 
-   var userid = {token.KreationUserIDv2}
+   var userid = token.KreationUserIDv2
 
    console.log ( userid )
 
