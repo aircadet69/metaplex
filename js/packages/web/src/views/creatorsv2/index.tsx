@@ -36,9 +36,11 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Kreati
 
    console.log( token )
 
-   var userid = token.KreationUserIDv2
+   var userid = {token.KreationUserIDv2}
 
-   var profilelink = '/artists/${userid}'
+   console.log ( userid )
+
+   var profilelink = '/artists/EGAeeMKQKCbRYd7F647c8WYbKG79brCAaJozcjWNVzSM'
 
     return (
  
