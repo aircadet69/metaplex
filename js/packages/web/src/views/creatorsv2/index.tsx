@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import React, { useState, Fragment } from 'react';
 import useSWR from "swr";
 
-import { AuctionRenderCard } from '../../../../components/AuctionRenderCard';
 
 
 
