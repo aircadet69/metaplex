@@ -52,18 +52,6 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
 
   return (
     <>
-      <Layout>
-        <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
-          <Col style={{ width: '100%', marginTop: 32 }}>
-            <Row>
-              
-            </Row>
-            <Row>
-             
-            </Row>
-          </Col>
-        </Content>
-      </Layout>
       <div className="feature-list">
   <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel"/>
             </div>
