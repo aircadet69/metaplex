@@ -9,9 +9,6 @@ import useSWR from "swr";
 
 
 export const CreatorsViewV2 = () => {
-  const [activeKey, setActiveKey] = useState(LiveAuctionViewState.All);
-  const { isLoading } = useMeta();
-  const { connected } = useWallet();
 
 const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel";
 
