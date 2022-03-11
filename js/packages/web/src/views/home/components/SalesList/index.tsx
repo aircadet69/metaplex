@@ -59,9 +59,8 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
     return (
  
       <div className="featured-item">
-        <div className="featured-item-image"><a href={token.image}><img src={token.image}/></a></div>
-         <div className="featured-item-title"><a href={token.link}>{token.link}</a></div>
-        <div className="featured-item-artist"><a href={token.link}>{token.link}</a></div>
+        <div className="featured-item-image"><a href={token.link}><img src={token.image}/></a></div>
+         <div className="featured-item-title"><a href={token.link}>{token.title}</a></div>
   </div>
 
 
