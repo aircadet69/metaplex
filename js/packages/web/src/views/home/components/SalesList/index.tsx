@@ -89,11 +89,12 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
              
             </Row>
           </Col>
-        </Content>
-      </Layout>
-      <div className="feature-list">
+                <div className="feature-list">
   <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel"/>
             </div>
+        </Content>
+      </Layout>
+
     </>
   );
 };
