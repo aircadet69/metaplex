@@ -30,7 +30,7 @@ export const SalesListView = () => {
   const { isLoading } = useMeta();
   const { connected } = useWallet();
 
-const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel";
+const feed2 = "https://kreation.io/cms/featurepanels";
 
   console.log( feed2 )
 
