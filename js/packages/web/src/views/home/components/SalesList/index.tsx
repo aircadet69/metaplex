@@ -71,13 +71,6 @@ const feed2 = "https://kreation.io/cms/featurepanels";
 
   return (
     <>
-      <Banner
-        src="/bannerstone.jpg"
-        headingText="Coming Soon"
-        subHeadingText="The Stone Heads art collection by Leo Caillard"
-        actionComponent={<HowToBuyModal buttonClassName="secondary-btn" />}
-        useBannerBg
-      />
       <Layout>
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Col style={{ width: '100%', marginTop: 32 }}>
@@ -92,28 +85,9 @@ const feed2 = "https://kreation.io/cms/featurepanels";
   <RenderOwnedList feed="https://kreation.io/cms/featurepanels"/>
             </div>
 
-<div className="pressline">
-<img src="/pressline.png"/>
-</div>
 
-            <div className="feature-list">
-          
-<div className="featured-item about1">
-<div className="featured-text">
-              KREATION IS COLLABORATING WITH THE GREATEST ATHLETES WORLDWIDE, OFFERING FANS A CHANCE TO OWN A PIECE OF THEIR DIGITAL FUTURE 
-</div>
-</div>
-<div className="featured-item about2">
-<div className="featured-text">
-             WITH DECADES OF EXPERIENCE IN THE ART WORLD - KREATION BRINGS FORTH THE FINEST CONTEMPORARY DIGITAL ARTIST'S IN THE NFT SPACE 
-</div>
-</div>
-<div className="featured-item about3">
-<div className="featured-text">
-             PARTNERING WITH MUSICIANS TO CREATE UNIQUE AND INSPIRING NFTS AND OFFERING THE THE COMMUNITY THE OPPORTUNITY TO GET UP CLOSE AND PERSONAL WITH THEIR MUSICAL HEROES 
-</div>
-</div>
-          </div>
+
+            
         </Content>
       </Layout>
 
