@@ -89,7 +89,7 @@ const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featur
             </Row>
           </Col>
                 <div className="feature-list">
-  <RenderOwnedList feed="https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/Featurepanel"/>
+  <RenderOwnedList feed="https://kreation.io/cms/featurepanels"/>
             </div>
 
 <div className="pressline">
