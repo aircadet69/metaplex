@@ -58,7 +58,7 @@ const feed2 = "https://kreation.io/cms/featurepanels";
 
     return (
  
-      <div className="featured-item">
+      <div className={token.classname}>
         <div className="featured-item-image"><a href={token.link}><img src={token.image}/></a></div>
          <div className="featured-item-title"><a href={token.link}>{token.title}</a></div>
   </div>
