@@ -59,8 +59,11 @@ const feed2 = "https://kreation.io/cms/featurepanels";
     return (
  
       <div className={token.classname} style={{ backgroundImage: `url(${token.image})` }}>
-        <div className="featured-item-image"><a href={token.link}><img src={token.image}/></a></div>
-         <div className="featured-item-title"><a href={token.link}>{token.title}</a></div>
+       <a href={token.link}><div className="panelinner">
+       <div className="featured-item-image"><img src={token.image}/></div>
+         <div className="featured-item-title">{token.title}</div>
+         </div>
+         </a>
   </div>
 
 
