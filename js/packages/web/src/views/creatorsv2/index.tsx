@@ -10,7 +10,7 @@ import useSWR from "swr";
 
 export const CreatorsViewV2 = () => {
 
-const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUsers";
+const feed2 = "https://kreationcms.bubbleapps.io/version-test/api/1.1/obj/KreationUser";
 
   console.log( feed2 )
 
