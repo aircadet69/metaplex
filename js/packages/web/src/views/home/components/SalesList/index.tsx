@@ -52,7 +52,7 @@ const feed2 = "https://kreation.io/cms/featurepanels";
     return <Fragment />;
   }
 
-  return data.response.results.map((token: any) => {
+  return data.results.map((token: any) => {
 
    console.log( token )
 
