@@ -30,7 +30,7 @@ export const SalesListView = () => {
   const { isLoading } = useMeta();
   const { connected } = useWallet();
 
-const feed2 = "https://kreation.io/cms/featurepanels";
+const feed2 = "https://cms.kreation.io/featurepanels";
 
   console.log( feed2 )
 
@@ -85,7 +85,7 @@ const feed2 = "https://kreation.io/cms/featurepanels";
             </Row>
           </Col>
                 <div className="feature-list">
-  <RenderOwnedList feed="https://kreation.io/cms/featurepanels"/>
+  <RenderOwnedList feed="https://cms.kreation.io/featurepanels"/>
             </div>
 
 
