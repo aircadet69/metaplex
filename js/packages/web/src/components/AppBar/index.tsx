@@ -17,16 +17,10 @@ import { MobileNavbar } from '../MobileNavbar';
 const getDefaultLinkActions = (connected: boolean) => {
   return [
     <Link to={`/`} key={'explore'}>
-      <Button className="app-btn">Explore</Button>
-    </Link>,
-    <Link to={`/sales`} key={'sales'}>
-      <Button className="app-btn">Buy NFTs</Button>
+      <Button className="app-btn">Home</Button>
     </Link>,
     <Link to={`/artworks`} key={'artwork'}>
       <Button className="app-btn">{connected ? 'My Items' : ' '}</Button>
-    </Link>,
-    <Link to={`/creators`} key={'creators'}>
-      <Button className="app-btn">Creators</Button>
     </Link>,
   ];
 };
